@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Note</title>
+    <link rel="stylesheet" href="10b-codingNote.css">
+    <link 
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link   
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css"
+    />    
+</head>
+<body>
+   <main>
+       <h1>Catatan Coding</h1>
+       <div class="catatan-app">
+            <header>
+                <button id="buka-form-btn" class="buka-form-btn">
+                    <i class="fa-solid fa-notes-medical"></i> Tambah Catatan
+                </button>
+                <div class="save-file">
+                    <div class="button-container">
+                        <button id="exportBtn" title="SAVE DATA">
+                            <i class="fa-solid fa-download"></i>
+                        </button>
+                        <button id="importBtn" title="UPLOAD DATA">
+                            <i class="fa-solid fa-upload"></i>
+                        </button>
+                        <button id="deleteBtn" title="HAPUS LOCALSTORAGE">
+                            <i class="fa-solid fa-eraser"></i>
+                        </button>
+                    </div>
+                    <input type="file" id="fileInput">
+                </div>
+            </header>
+            <form class="form-catatan" id="form-catatan" name="form-catatan">
+                <div class="header-form">
+                    <button class="tutup-form-btn" id="tutup-form">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="body-form">
+                    <label for="judul-input">Judul</label>
+                    <input type="text" id="judul-input" class="form-control" name="judul">
+                    <label for="tanggal-input">Tanggal</label>
+                    <input type="date" id="tanggal-input" class="form-control">
+                    <label for="deskripsi-input">Deskripsi</label>
+                    <textarea class="form-control", id="deskripsi-input" cols="90" rows="5" spellcheck="false">
+                    </textarea>
+                </div>
+                <div class="footer-form">
+                    <button class="tambah-catatan" id="tambah-catatan" type="submit">TAMBAH</button>
+                </div>
+            </form>
+            <div id="catatan-container"></div>
+        </div>
+       
+   </main>
+
+   <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+   <script src="10c-codingNote.js"></script>
+</body>
+</html>

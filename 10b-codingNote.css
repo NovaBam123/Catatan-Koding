@@ -1,0 +1,290 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap'); */
+
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Roboto Mono', sans-serif;
+    background: linear-gradient(90deg, #40426d, #01021e);
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+main{
+    /* border: 1px solid red; */
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h1{
+        text-align: center;
+    }
+}
+.catatan-app{
+    max-width: 600px;
+    width: 100%;
+    margin: 40px auto;
+    min-height: 300px;
+    padding: 20px 30px;
+    background-color: white;
+    border: 4px solid #3cafbe;
+    border-radius: 5px;
+    position: relative;
+	.buka-form-btn{
+        z-index: 10;
+		cursor: pointer;
+		padding: 5px 10px;
+		width: 50%;
+		margin: 0 auto;
+		font-family:'Roboto Mono', sans-serif; 
+		font-size: 1.2rem;
+		font-weight: 600;
+		background-color: #3034a6;
+		background-image: linear-gradient(#3034a6, #090b44);
+		border-color: #3cafbe;
+		border-width: 3px;
+		border-radius: 5px;
+		color: #ffffff;
+	}
+}
+header{
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
+    color: black;
+    .save-file{
+        background-color: #3034a6;
+		background-image: linear-gradient(#3034a6, #090b44);
+		border-color: red;
+        color: #ffffff;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        border-width: 5px;
+		border-radius: 5px;
+    }
+    button{
+        transition: transform 0.2s ease-in;
+        &:hover{
+            transform: scale(0.97);
+            box-shadow: inset 2px 2px 4px black;
+        }
+    }
+    .save-file .button-container{
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 5px;
+        button{
+            cursor: pointer;
+            padding: 3px 5px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: transform 0.15s ease-in;
+            &:hover{
+                transform: scale(0.99);
+                box-shadow: inset 2px 2px 4px black;
+            }
+            &:active{
+                background: white;
+                color: black;
+            }
+        }
+    }
+}
+
+.form-catatan{
+    z-index: 10;
+    margin-top: 20px;
+    display: flex;
+    width: 610px;
+    left: -10px;
+    top: -30px;
+    position: absolute;
+    min-height: 300px;
+    flex-direction: column;
+    overflow: auto;
+    border: 2px solid #ffffff;
+    background: #0a0c42;
+    border-radius: 5px;
+    transform: scale(0);
+    transition: transform 0.35s ease-in;
+    &.form-catatan.show{
+       transform: scale(1);
+    }
+    .header-form{
+	   display: flex;
+       justify-content: flex-end;
+	   button{
+       		display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 2px;
+			font-size: 1.2rem;
+			border: none;
+			background-color: #0a0c42;
+			color: white;
+			&:hover{
+				background-color: red;
+			}
+       }
+    }
+    .body-form{
+        display: flex;
+        flex-direction: column;
+        width: 580px;
+        padding: 20px 55px;
+        input{
+            min-height: 30px;
+            padding-left: 8px;
+            font-size: 1rem;
+            outline: none;
+            &:focus{
+                box-shadow: inset 2px 2px 4px black;
+            }
+        }
+        input[type='date']{
+            outline: none;
+            &:focus{
+                box-shadow: inset 2px 2px 4px black;
+            }
+        }
+        textarea{
+            min-height: 90px;
+            overflow-y: auto;
+            text-align: left;
+            padding: 8px;
+            font-size: 1rem;
+            outline: none;
+            &:focus{
+                box-shadow: inset 2px 2px 4px black;
+            }
+        }
+        .editor-toolbar .fa{
+            color: black !important;
+            margin-left: 2px;
+            background: #ffffff;
+        }
+        label{
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 2px;
+            &:nth-of-type(2){
+                margin-top: 15px;
+            }
+            &:nth-of-type(3){
+                margin-top: 15px;
+            }
+        }
+    }
+    .footer-form {
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+        button{
+            padding: 4px 15px;
+            width: 78%;
+            margin-left: -25px;
+            font-weight: 500;
+            font-family: 'Roboto-Mono' sans-serif;
+            font-size: 1.1rem;
+			transition: transform 0.25s ease-out;
+			&:hover{
+				transform: scale(0.98);
+				box-shadow: inset 2px 2px 4px black;
+			}
+        }
+    }
+    input, textarea, button{
+        border-radius: 5px;
+    }
+}
+
+#konfirmasi-tutup-form{
+    margin: 10px auto;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #40426d;
+    color: white;
+    .btn-container{
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-around;
+        button{
+            padding: 5px 10px;
+            font-family: 'Roboto Mono', sans-serif;
+            font-size: 0.8rem;
+            background: #ffffff;
+        }
+    }
+}
+
+#catatan-container{
+    font-family: 'Noto Serif', sans-serif;
+    margin-top: 10px;
+    color: black;
+    max-height: 100vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    .catatan p{
+        margin-bottom: 3px;
+    }
+    button{
+        margin: 3px 15px 5px 0;
+        padding: 4px 10px;
+        background-color: #3034a6;
+		background-image: linear-gradient(#3034a6, #090b44);
+		border-color: #3cafbe;
+		border-width: 3px;
+        color: white;
+        font-family:'Roboto Mono', sans-serif; 
+        cursor: pointer;
+    }
+}
+.catatan p img{
+    width: 150px;
+    height: 150px;
+    transform: translate(125%, 5%);
+    object-fit: cover;
+}
+.catatan p a{
+    color: darkgreen;
+    margin: 225px;
+}
+    
+ol, ul li{
+    margin-left: 20px;
+}
+ul li {
+    list-style-type: disc;           
+    background-color: #495050;         
+    color: white;                    
+    padding: 6px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+  }
+
+ul li code {
+    color: #ffd700;                  
+}
+ul li a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.divider{
+    height: 5px;
+    background-color: #dfdfe2;
+    margin-bottom: 20px;
+}
