@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
     tampilkanCatatan();
 })
 
-const dataCatatan= JSON.parse(localStorage.getItem('Catatan-Koding')) || [];
+let dataCatatan= JSON.parse(localStorage.getItem('Catatan-Koding')) || [];
+
 let catatanSaatIni= {};
 
 const tambahOrUpdateCatatan= ()=> {
@@ -43,8 +44,9 @@ const tambahOrUpdateCatatan= ()=> {
     reset();
 }
 const tampilkanCatatan= ()=> {
+    const data= JSON.parse(localStorage.getItem('Catatan-Koding')) || [];
     catatanKontainer.innerHTML= '';
-    dataCatatan.forEach(
+    data.forEach(
         ({id, judul, tanggal, deskripsi})=> {
             catatanKontainer.innerHTML+= `
             <div class="catatan" id="${id}">
@@ -158,6 +160,7 @@ importBtn.addEventListener('click', ()=> {
               localStorage.setItem(key, data[key]);
            })
            alert('Import Berhasil..!')
+           tampilkanCatatan();
         }catch(err) {
             alert(`Oops, Gagal import! ${err.message}`);
         }
@@ -170,9 +173,7 @@ deleteBtn.addEventListener('click', ()=> {
     if(konfirmasi){
         localStorage.clear();
         tampilkanCatatan();
-    }else{
-        return;
-    }
+    }    
 });
 
 
