@@ -169,6 +169,7 @@ deleteBtn.addEventListener('click', ()=> {
     let konfirmasi= confirm('Peringatan! seluruh data localStorage akan dihapus?')
     if(konfirmasi){
         localStorage.clear();
+        tampilkanCatatan();
     }else{
         return;
     }
